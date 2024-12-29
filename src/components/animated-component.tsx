@@ -40,6 +40,8 @@ const AnimatedComponent = () => {
     gsap.effects.fade(".box", { duration: 5 });
     gsap.effects.slideOut(".box", { duration: 5 });
   }, []);
+
+  gsap.globalTimeline.timeScale(0.5);
   return <div className="w-52 h-52 bg-red-500 box"></div>;
 };
 
