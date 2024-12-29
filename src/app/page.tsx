@@ -1,6 +1,9 @@
-import gsap from "gsap";
-import Image from "next/image";
+import AnimatedComponent from "@/components/animated-component";
 
 export default function Home() {
-  return <div>asdasdas</div>;
+  return (
+    <div>
+      <AnimatedComponent />
+    </div>
+  );
 }
