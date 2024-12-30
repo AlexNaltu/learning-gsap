@@ -3,6 +3,13 @@ import gsap from "gsap";
 import React, { useEffect } from "react";
 
 const AnimatedComponent = () => {
+  gsap.config({
+    autoSleep: 120,
+    force3D: true,
+    nullTargetWarn: false,
+    units: { top: "%", left: "%", bottom: "%", right: "%" },
+  });
+
   gsap.registerEffect({
     name: "fade",
     extendedTimeline: true,
@@ -37,12 +44,15 @@ const AnimatedComponent = () => {
   });
 
   useEffect(() => {
+    const clampedValue = gsap.utils.clamp(0, 100, -12);
+
+    console.log(clampedValue);
+
     gsap.effects.fade(".box", { duration: 5 });
     gsap.effects.slideOut(".box", { duration: 5 });
   }, []);
 
-  gsap.globalTimeline.timeScale(0.5);
-  return <div className="w-52 h-52 bg-red-500 box"></div>;
+  return <div className="w-52 h-52 bg-red-950 box"></div>;
 };
 
 export default AnimatedComponent;
